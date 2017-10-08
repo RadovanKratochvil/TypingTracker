@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypingTracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/ca38661c31.js"></script>
+    <link rel="stylesheet" href="progressbar.css">
+    <style>
+        textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+            border-color: rgba(229, 103, 23, 0.8) !important;
+            box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6) !important;
+            outline: 0 none !important;
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-5">TypingTracker v1.0</h1>
+            <p class="lead">The TypingTracker class uses an HTML progress tag bar to track the number of characters typed into a field.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Title</label><a data-toggle="popover" title="Title" data-trigger="hover" 
+                               data-content="For best search results this needs to be as close to 70 characters as possible." href="">&nbsp;<i class="fa fa-info-circle"></i></a>
+                        <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="70 character title" maxlength="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seo-description">SEO Description</label><a data-toggle="popover" title="SEO Description" data-trigger="hover" 
+                               data-content="For best search results this needs to be as close to 160 characters as possible." href="">&nbsp;<i class="fa fa-info-circle"></i></a>
+                        <textarea id="seo-description" class="form-control" id="seo-description" maxlength="0" required placeholder="160 character description for SEO"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="rpjs.min.js"></script>
+    <script>        
+        let afterDocumentLoaded = () => {
+            const MAX_SEO_DESC_LENGTH = 160;
+            const MAX_SEO_TITLE_LENGTH = 70;
+
+            // let ta = new rp.core.TypingTracker('seo-description', MAX_SEO_DESC_LENGTH)
+            // let ti = new rp.core.TypingTracker('title', MAX_SEO_TITLE_LENGTH)
+
+            new rp.core.TypingTracker('seo-description', MAX_SEO_DESC_LENGTH)
+            new rp.core.TypingTracker('title', MAX_SEO_TITLE_LENGTH)
+            // Enable Bootstrap popovers.
+            $('[data-toggle="popover"]').popover()
+        };
+
+        rp.core.documentReady(afterDocumentLoaded);
+    </script>
+</body>
+
+</html>
